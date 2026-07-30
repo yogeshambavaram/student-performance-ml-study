@@ -72,6 +72,12 @@ st.info(
     "📚 Enter a student's academic and lifestyle information to receive an estimated final grade and personalized recommendations."
 )
 
+# 👇 ADD TABS HERE
+tab1, tab2, tab3 = st.tabs([
+    "🎯 Predictor",
+    "📊 Model Insights",
+    "ℹ️ About"
+])
 # Animation goes HERE
 
 st.markdown("""
