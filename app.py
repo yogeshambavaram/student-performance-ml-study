@@ -90,29 +90,7 @@ with tab1:
     # Your prediction code starts here
     # (Sidebar stays outside tabs because Streamlit sidebars are global)
 
-    if st.button("🎯 Predict Grade", use_container_width=True):
-
-        prediction = model.predict(input_data)[0]
-
-        st.markdown("## 🎯 Prediction Result")
-
-        st.metric(
-            "Predicted Final Grade",
-            f"{prediction:.1f} / 20",
-            delta=f"{prediction/20*100:.0f}%"
-        )
-
-        st.progress(prediction / 20)
-
-        if prediction >= 16:
-            st.success("🌟 Excellent predicted academic performance!")
-            st.balloons()
-
-        elif prediction >= 10:
-            st.info("📘 Average predicted academic performance.")
-
-        else:
-            st.warning("⚠️ Predicted below the passing grade.")
+    
 
 # =====================================
 # TAB 2 - MODEL INSIGHTS
