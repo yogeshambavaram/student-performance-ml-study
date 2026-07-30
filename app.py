@@ -40,9 +40,9 @@ Adjust the inputs below and click **Predict Grade**.
 
 st.markdown("---")
 
-# ============================
-# Sidebar
-# ============================
+# ==================================
+# SIDEBAR
+# ==================================
 
 st.sidebar.image(
     "https://img.icons8.com/color/96/graduation-cap.png",
@@ -50,85 +50,124 @@ st.sidebar.image(
 )
 
 st.sidebar.title("🎓 EduPredict AI")
-
 st.sidebar.caption("Student Profile")
 
 st.sidebar.markdown("---")
 
-st.sidebar.subheader("👤 Personal")
+# ==========================
+# Personal
+# ==========================
 
-age = st.sidebar.slider(
-    "🎂 Age",
-    min_value=15,
-    max_value=22,
-    value=17
-)
+with st.sidebar.expander("👤 Personal Information", expanded=True):
 
-st.sidebar.markdown("")
+    age = st.slider(
+        "🎂 Age",
+        15,
+        22,
+        17
+    )
 
-st.sidebar.subheader("📚 Academics")
+# ==========================
+# Academics
+# ==========================
 
-studytime = st.sidebar.select_slider(
-    "Daily Study Time",
-    options=[
-        "< 2 hours",
-        "2–5 hours",
-        "5–10 hours",
-        "> 10 hours"
-    ],
-    value="2–5 hours"
-)
+with st.sidebar.expander("📚 Academic Habits", expanded=True):
 
-absences = st.sidebar.slider(
-    "🏫 School Absences",
-    min_value=0,
-    max_value=50,
-    value=5
-)
+    studytime_label = st.select_slider(
+        "📖 Daily Study Time",
+        options=[
+            "< 2 hours",
+            "2–5 hours",
+            "5–10 hours",
+            "> 10 hours"
+        ],
+        value="2–5 hours"
+    )
 
-st.sidebar.markdown("")
+    studytime_map = {
+        "< 2 hours": 1,
+        "2–5 hours": 2,
+        "5–10 hours": 3,
+        "> 10 hours": 4
+    }
 
-st.sidebar.subheader("❤️ Lifestyle")
+    studytime = studytime_map[studytime_label]
 
-health = st.sidebar.slider(
-    "Health Rating",
-    min_value=1,
-    max_value=5,
-    value=3,
-    help="1 = Very Poor • 5 = Excellent"
-)
+    traveltime_label = st.select_slider(
+        "🚌 Daily Travel Time",
+        options=[
+            "< 15 minutes",
+            "15–30 minutes",
+            "30–60 minutes",
+            "> 60 minutes"
+        ],
+        value="< 15 minutes"
+    )
 
-famrel = st.sidebar.slider(
-    "Family Relationship",
-    min_value=1,
-    max_value=5,
-    value=4,
-    help="1 = Very Bad • 5 = Excellent"
-)                                      
-    traveltime_label = st.sidebar.select_slider(
-    "🚌 Travel Time",
-    options=[
-        "< 15 min",
-        "15–30 min",
-        "30–60 min",
-        "> 60 min"
-    ],
-    value="< 15 min"
-)
+    travel_map = {
+        "< 15 minutes": 1,
+        "15–30 minutes": 2,
+        "30–60 minutes": 3,
+        "> 60 minutes": 4
+    }
 
-travel_map = {
-    "< 15 min": 1,
-    "15–30 min": 2,
-    "30–60 min": 3,
-    "> 60 min": 4
-}
+    traveltime = travel_map[traveltime_label]
 
-traveltime = travel_map[traveltime_label]
+    failures = st.slider(
+        "❌ Previous Academic Failures",
+        0,
+        4,
+        0
+    )
+
+    absences = st.slider(
+        "🏫 School Absences",
+        0,
+        50,
+        5
+    )
+
+# ==========================
+# Lifestyle
+# ==========================
+
+with st.sidebar.expander("❤️ Lifestyle", expanded=True):
+
+    health = st.slider(
+        "Health Rating",
+        1,
+        5,
+        3,
+        help="1 = Very Poor | 5 = Excellent"
+    )
+
+    famrel = st.slider(
+        "Family Relationship",
+        1,
+        5,
+        4,
+        help="1 = Very Bad | 5 = Excellent"
+    )
+
+    freetime = st.slider(
+        "Free Time After School",
+        1,
+        5,
+        3
+    )
+
+    goout = st.slider(
+        "Social Outings",
+        1,
+        5,
+        3
+    )
 
 st.sidebar.markdown("---")
 
-st.sidebar.success("💡 Adjust the values and click **Predict Grade**.")
-
+st.sidebar.success(
+    "💡 Adjust the student's profile and click **Predict Grade**."
+)
 # -----------------------------------
 # Create Input Data
 # -----------------------------------
