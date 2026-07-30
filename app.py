@@ -22,20 +22,44 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.stApp {
-    background: linear-gradient(-45deg,
-        #0f172a,
-        #1e293b,
-        #1e3a8a,
-        #0f766e);
-    background-size: 400% 400%;
-    animation: gradient 18s ease infinite;
+.stApp{
+background:linear-gradient(135deg,#0f172a,#172554,#0f766e);
+background-size:300% 300%;
+animation:gradient 12s ease infinite;
+color:white;
 }
 
-@keyframes gradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Sidebar */
+[data-testid="stSidebar"]{
+background:rgba(20,20,30,0.65);
+backdrop-filter:blur(18px);
+}
+
+/* Buttons */
+.stButton>button{
+border-radius:12px;
+height:3.2em;
+font-size:18px;
+font-weight:600;
+transition:0.3s;
+}
+
+.stButton>button:hover{
+transform:scale(1.03);
+}
+
+/* Metric cards */
+[data-testid="metric-container"]{
+background:rgba(255,255,255,0.08);
+padding:18px;
+border-radius:18px;
+backdrop-filter:blur(12px);
 }
 
 </style>
