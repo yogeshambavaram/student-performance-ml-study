@@ -12,11 +12,6 @@ feature_names = joblib.load("feature_names.pkl")
 # -----------------------------------
 # Page Configuration
 # -----------------------------------
-st.markdown("""
-# 🎓 Student Performance Predictor
-
-### 🤖 AI-powered Grade Prediction
-""")
 
 st.set_page_config(
     page_title="Student Academic Performance Predictor",
