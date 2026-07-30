@@ -18,7 +18,8 @@ st.set_page_config(
     page_icon="🎓",
     layout="centered"
 )
-     st.markdown("""
+
+st.markdown("""
 <style>
 
 .stApp {
@@ -31,14 +32,15 @@ st.set_page_config(
     animation: gradient 18s ease infinite;
 }
 
-@keyframes gradient{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 st.title("🎓 EduPredict AI")
 st.subheader("AI-powered Student Performance Prediction")
 
