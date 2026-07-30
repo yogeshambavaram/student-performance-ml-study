@@ -61,4 +61,13 @@ if st.button("Predict Grade"):
 
     prediction = model.predict(input_data)[0]
 
-    st.success(f"🎯 Predicted Final Grade: {prediction:.2f} / 20")
+    st.success(f"🎯 Predicted Final Grade: {prediction:.1f} / 20")
+
+    st.info("📘 Note: The dataset uses a grading scale from 0 to 20.")
+
+    if prediction < 10:
+        st.error("⚠️ Predicted below the passing grade.")
+    elif prediction < 15:
+        st.info("📚 Predicted average academic performance.")
+    else:
+        st.success("🌟 Predicted strong academic performance!")
