@@ -18,7 +18,27 @@ st.set_page_config(
     page_icon="🎓",
     layout="centered"
 )
+     st.markdown("""
+<style>
 
+.stApp {
+    background: linear-gradient(-45deg,
+        #0f172a,
+        #1e293b,
+        #1e3a8a,
+        #0f766e);
+    background-size: 400% 400%;
+    animation: gradient 18s ease infinite;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.title("🎓 EduPredict AI")
 st.subheader("AI-powered Student Performance Prediction")
 
