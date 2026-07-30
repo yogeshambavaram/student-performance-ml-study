@@ -44,49 +44,24 @@ st.markdown("---")
 # User Inputs
 # -----------------------------------
 
-age = st.slider(
-    "🎂 Age",
-    15, 22, 17
+age = st.sidebar.slider("🎂 Age", 15, 22, 17)
+
+studytime = st.sidebar.select_slider(
+    "📚 Daily Study Time",
+    options=[
+        "< 2 hours",
+        "2–5 hours",
+        "5–10 hours",
+        "> 10 hours"
+    ],
+    value="2–5 hours"
 )
 
-studytime = st.slider(
-    "📚 Daily Study Time\n(1 = <2 hrs | 2 = 2–5 hrs | 3 = 5–10 hrs | 4 = >10 hrs)",
-    1, 4, 2
-)
+health = st.sidebar.slider("❤️ Health", 1, 5, 3)
 
-traveltime = st.slider(
-    "🚌 Travel Time to School\n(1 = <15 min | 2 = 15–30 min | 3 = 30–60 min | 4 = >60 min)",
-    1, 4, 1
-)
+famrel = st.sidebar.slider("👨‍👩‍👧 Family Relationship",1,5,4)
 
-health = st.slider(
-    "❤️ Health Rating\n(1 = Very Poor | 5 = Excellent)",
-    1, 5, 3
-)
-
-famrel = st.slider(
-    "👨‍👩‍👧 Family Relationship\n(1 = Very Bad | 5 = Excellent)",
-    1, 5, 4
-)
-
-freetime = st.slider(
-    "⏰ Free Time After School\n(1 = Very Little | 5 = A Lot)",
-    1, 5, 3
-)
-
-goout = st.slider(
-    "🎉 Social Outings\n(1 = Very Rarely | 5 = Very Frequently)",
-    1, 5, 3
-)
-
-failures = st.slider(
-    "❌ Previous Academic Failures",
-    0, 4, 0
-)
-
-absences = st.slider(
-    "🏫 Number of School Absences",
-    0, 50, 5
+absences = st.sidebar.slider("🏫 Absences",0,50,5)
 )
 
 st.markdown("---")
