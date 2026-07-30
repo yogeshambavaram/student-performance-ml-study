@@ -113,10 +113,6 @@ import time
 
 if st.button("🎯 Predict Grade", use_container_width=True):
 
- import time
-
-if st.button("🎯 Predict Grade", use_container_width=True):
-
     prediction_placeholder = st.empty()
 
     prediction_placeholder.info("🤖 AI is analyzing your academic profile...")
