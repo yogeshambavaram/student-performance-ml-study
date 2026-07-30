@@ -104,7 +104,26 @@ famrel = st.sidebar.slider(
     max_value=5,
     value=4,
     help="1 = Very Bad • 5 = Excellent"
+)                                      
+    traveltime_label = st.sidebar.select_slider(
+    "🚌 Travel Time",
+    options=[
+        "< 15 min",
+        "15–30 min",
+        "30–60 min",
+        "> 60 min"
+    ],
+    value="< 15 min"
 )
+
+travel_map = {
+    "< 15 min": 1,
+    "15–30 min": 2,
+    "30–60 min": 3,
+    "> 60 min": 4
+}
+
+traveltime = travel_map[traveltime_label]
 
 st.sidebar.markdown("---")
 
