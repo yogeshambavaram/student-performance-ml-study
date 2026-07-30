@@ -8,6 +8,8 @@ feature_names = joblib.load("feature_names.pkl")
 
 st.set_page_config(page_title="Student Grade Predictor", page_icon="🎓")
 
+st.title("🎓 Student Academic Performance Predictor")
+
 st.markdown("---")
 
 st.markdown("""
