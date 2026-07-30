@@ -113,23 +113,24 @@ import time
 
 if st.button("🎯 Predict Grade", use_container_width=True):
 
-  prediction_placeholder = st.empty()
+ import time
 
-prediction_placeholder.info("🤖 AI is analyzing your academic profile...")
+if st.button("🎯 Predict Grade", use_container_width=True):
 
-time.sleep(1)
+    prediction_placeholder = st.empty()
 
-prediction_placeholder.info("📊 Evaluating study habits and attendance...")
+    prediction_placeholder.info("🤖 AI is analyzing your academic profile...")
+    time.sleep(1)
 
-time.sleep(1)
+    prediction_placeholder.info("📊 Evaluating study habits and attendance...")
+    time.sleep(1)
 
-prediction_placeholder.info("🧠 Running Random Forest prediction model...")
+    prediction_placeholder.info("🧠 Running Random Forest prediction model...")
+    time.sleep(1)
 
-time.sleep(1)
+    prediction = model.predict(input_data)[0]
 
-prediction = model.predict(input_data)[0]
-
-prediction_placeholder.empty()
+    prediction_placeholder.empty()
 
     st.markdown("## 🎯 Prediction Result")
 
