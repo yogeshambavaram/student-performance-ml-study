@@ -62,7 +62,7 @@ health = st.sidebar.slider("❤️ Health", 1, 5, 3)
 famrel = st.sidebar.slider("👨‍👩‍👧 Family Relationship",1,5,4)
 
 absences = st.sidebar.slider("🏫 Absences",0,50,5)
-)
+
 
 st.markdown("---")
 
