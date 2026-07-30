@@ -21,6 +21,9 @@ st.set_page_config(
 
 st.title("🎓 Student Academic Performance Predictor")
 
+st.info(
+    "💡 Tip: Try changing study time, attendance, and health to see how they influence the predicted grade."
+)
 # Animation goes HERE
 
 st.markdown("""
@@ -106,33 +109,37 @@ input_data["absences"] = absences
 # Prediction
 # -----------------------------------
 
+import time
+
 if st.button("🎯 Predict Grade", use_container_width=True):
 
-    prediction = model.predict(input_data)[0]
+    with st.spinner("🤖 AI is analyzing the student profile..."):
+        time.sleep(2)   # Creates a nice loading animation
+        prediction = model.predict(input_data)[0]
 
-    st.header("Prediction")
+    st.markdown("## 🎯 Prediction Result")
 
     st.metric(
         label="Predicted Final Grade",
-        value=f"{prediction:.1f} / 20"
+        value=f"{prediction:.1f} / 20",
+        delta=f"{prediction/20*100:.0f}%"
     )
 
-    st.progress(float(prediction / 20))
+    st.progress(prediction / 20)
 
     if prediction >= 16:
         st.success("🌟 Excellent predicted academic performance!")
         st.balloons()
 
     elif prediction >= 10:
-        st.info("📘 Average predicted academic performance.")
+        st.info("📘 Average predicted academic performance. Small improvements could increase the predicted score.")
 
     else:
-        st.warning("⚠️ Predicted below the passing grade.")
+        st.warning("⚠️ Predicted below the passing grade. Consider the recommendations below.")
 
-    st.info("The UCI dataset uses a grading scale from **0 to 20**.")
+    st.info("📘 This model predicts grades on a 0–20 scale used in the original dataset.")
 
     st.markdown("---")
-
     # -----------------------------------
     # Strengths & Suggestions
     # -----------------------------------
