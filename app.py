@@ -5,6 +5,11 @@ import joblib
 # -----------------------------------
 # Load trained model
 # -----------------------------------
+st.markdown("""
+# 🎓 Student Performance Predictor
+
+### 🤖 AI-powered Grade Prediction
+""")
 
 model = joblib.load("student_grade_model.pkl")
 feature_names = joblib.load("feature_names.pkl")
@@ -38,14 +43,46 @@ age = st.slider(
     15, 22, 17
 )
 
-studytime = st.slider(
-    "📚 Daily Study Time\n(1 = <2 hrs | 2 = 2–5 hrs | 3 = 5–10 hrs | 4 = >10 hrs)",
-    1, 4, 2
+studytime = st.select_slider(
+    "📚 Daily Study Time",
+    options=[
+        "< 2 hours",
+        "2–5 hours",
+        "5–10 hours",
+        "> 10 hours"
+    ],
+    value="2–5 hours"
 )
 
-traveltime = st.slider(
-    "🚌 Travel Time to School\n(1 = <15 min | 2 = 15–30 min | 3 = 30–60 min | 4 = >60 min)",
-    1, 4, 1
+studytime_map = {
+    "< 2 hours": 1,
+    "2–5 hours": 2,
+    "5–10 hours": 3,
+    "> 10 hours": 4
+}
+
+studytime = studytime_map[studytime]
+)
+
+traveltime = st.select_slider(
+    "🚌 Travel Time",
+    options=[
+        "< 15 minutes",
+        "15–30 minutes",
+        "30–60 minutes",
+        "> 60 minutes"
+    ],
+    value="< 15 minutes"
+)
+
+travel_map = {
+    "< 15 minutes": 1,
+    "15–30 minutes": 2,
+    "30–60 minutes": 3,
+    "> 60 minutes": 4
+}
+
+traveltime = travel_map[traveltime]
 )
 
 health = st.slider(
@@ -111,7 +148,11 @@ if st.button("🎯 Predict Grade", use_container_width=True):
         value=f"{prediction:.1f} / 20"
     )
 
-    st.progress(float(prediction / 20))
+   st.metric(
+    "Predicted Grade",
+    f"{prediction:.1f}/20",
+    help="Predicted final academic grade"
+)
 
     if prediction >= 16:
         st.success("🌟 Excellent predicted academic performance!")
