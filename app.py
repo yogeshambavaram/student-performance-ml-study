@@ -5,11 +5,6 @@ import joblib
 # -----------------------------------
 # Load trained model
 # -----------------------------------
-st.markdown("""
-# 🎓 Student Performance Predictor
-
-### 🤖 AI-powered Grade Prediction
-""")
 
 model = joblib.load("student_grade_model.pkl")
 feature_names = joblib.load("feature_names.pkl")
@@ -17,6 +12,11 @@ feature_names = joblib.load("feature_names.pkl")
 # -----------------------------------
 # Page Configuration
 # -----------------------------------
+st.markdown("""
+# 🎓 Student Performance Predictor
+
+### 🤖 AI-powered Grade Prediction
+""")
 
 st.set_page_config(
     page_title="Student Academic Performance Predictor",
