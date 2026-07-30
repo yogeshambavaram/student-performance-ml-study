@@ -19,10 +19,12 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🎓 Student Academic Performance Predictor")
+st.title("🎓 EduPredict AI")
+st.subheader("AI-powered Student Performance Prediction")
 
 st.info(
-    "💡 Tip: Try changing study time, attendance, and health to see how they influence the predicted grade."
+    "📚 Enter a student's academic and lifestyle information to receive an estimated final grade and personalized recommendations."
+)
 )
 # Animation goes HERE
 
