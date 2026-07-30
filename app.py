@@ -40,14 +40,36 @@ Adjust the inputs below and click **Predict Grade**.
 
 st.markdown("---")
 
-# -----------------------------------
-# User Inputs
-# -----------------------------------
+# ============================
+# Sidebar
+# ============================
 
-age = st.sidebar.slider("🎂 Age", 15, 22, 17)
+st.sidebar.image(
+    "https://img.icons8.com/color/96/graduation-cap.png",
+    width=80
+)
+
+st.sidebar.title("🎓 EduPredict AI")
+
+st.sidebar.caption("Student Profile")
+
+st.sidebar.markdown("---")
+
+st.sidebar.subheader("👤 Personal")
+
+age = st.sidebar.slider(
+    "🎂 Age",
+    min_value=15,
+    max_value=22,
+    value=17
+)
+
+st.sidebar.markdown("")
+
+st.sidebar.subheader("📚 Academics")
 
 studytime = st.sidebar.select_slider(
-    "📚 Daily Study Time",
+    "Daily Study Time",
     options=[
         "< 2 hours",
         "2–5 hours",
@@ -57,14 +79,36 @@ studytime = st.sidebar.select_slider(
     value="2–5 hours"
 )
 
-health = st.sidebar.slider("❤️ Health", 1, 5, 3)
+absences = st.sidebar.slider(
+    "🏫 School Absences",
+    min_value=0,
+    max_value=50,
+    value=5
+)
 
-famrel = st.sidebar.slider("👨‍👩‍👧 Family Relationship",1,5,4)
+st.sidebar.markdown("")
 
-absences = st.sidebar.slider("🏫 Absences",0,50,5)
+st.sidebar.subheader("❤️ Lifestyle")
 
+health = st.sidebar.slider(
+    "Health Rating",
+    min_value=1,
+    max_value=5,
+    value=3,
+    help="1 = Very Poor • 5 = Excellent"
+)
 
-st.markdown("---")
+famrel = st.sidebar.slider(
+    "Family Relationship",
+    min_value=1,
+    max_value=5,
+    value=4,
+    help="1 = Very Bad • 5 = Excellent"
+)
+
+st.sidebar.markdown("---")
+
+st.sidebar.success("💡 Adjust the values and click **Predict Grade**.")
 
 # -----------------------------------
 # Create Input Data
