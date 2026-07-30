@@ -143,11 +143,7 @@ if st.button("🎯 Predict Grade", use_container_width=True):
         value=f"{prediction:.1f} / 20"
     )
 
-   st.metric(
-    "Predicted Grade",
-    f"{prediction:.1f}/20",
-    help="Predicted final academic grade"
-)
+    st.progress(float(prediction / 20))
 
     if prediction >= 16:
         st.success("🌟 Excellent predicted academic performance!")
