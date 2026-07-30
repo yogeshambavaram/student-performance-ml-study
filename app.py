@@ -25,7 +25,7 @@ st.subheader("AI-powered Student Performance Prediction")
 st.info(
     "📚 Enter a student's academic and lifestyle information to receive an estimated final grade and personalized recommendations."
 )
-)
+
 # Animation goes HERE
 
 st.markdown("""
