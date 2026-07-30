@@ -113,9 +113,17 @@ import time
 
 if st.button("🎯 Predict Grade", use_container_width=True):
 
-    with st.spinner("🤖 AI is analyzing the student profile..."):
-        time.sleep(2)   # Creates a nice loading animation
-        prediction = model.predict(input_data)[0]
+   with st.spinner("📊 Processing academic profile..."):
+    time.sleep(0.8)
+
+st.write("✅ Features processed")
+
+with st.spinner("🤖 Running Random Forest model..."):
+    time.sleep(1)
+
+st.write("✅ Prediction generated")
+
+prediction = model.predict(input_data)[0]
 
     st.markdown("## 🎯 Prediction Result")
 
