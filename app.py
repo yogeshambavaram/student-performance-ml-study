@@ -79,16 +79,46 @@ tab1, tab2, tab3 = st.tabs([
     "ℹ️ About"
 ])
 
-   with tab1:
+ # =====================================
+# TAB 1 - PREDICTOR
+# =====================================
 
-    # Sidebar
-    # All sliders
-    # Input dataframe
-    # Predict button
-    # Suggestions
+with tab1:
 
+    st.write("Use the sidebar to enter the student's information.")
 
-   with tab2:
+    # Your prediction code starts here
+    # (Sidebar stays outside tabs because Streamlit sidebars are global)
+
+    if st.button("🎯 Predict Grade", use_container_width=True):
+
+        prediction = model.predict(input_data)[0]
+
+        st.markdown("## 🎯 Prediction Result")
+
+        st.metric(
+            "Predicted Final Grade",
+            f"{prediction:.1f} / 20",
+            delta=f"{prediction/20*100:.0f}%"
+        )
+
+        st.progress(prediction / 20)
+
+        if prediction >= 16:
+            st.success("🌟 Excellent predicted academic performance!")
+            st.balloons()
+
+        elif prediction >= 10:
+            st.info("📘 Average predicted academic performance.")
+
+        else:
+            st.warning("⚠️ Predicted below the passing grade.")
+
+# =====================================
+# TAB 2 - MODEL INSIGHTS
+# =====================================
+
+with tab2:
 
     st.header("📊 Model Insights")
 
@@ -107,33 +137,38 @@ tab1, tab2, tab3 = st.tabs([
         ]
     })
 
+    st.markdown("---")
+
     st.write("### Dataset")
 
-    st.write("- 395 students")
-    st.write("- 33 original features")
-    st.write("- Random Forest used for deployment")
+    st.write("• 395 student records")
+    st.write("• 33 original features")
+    st.write("• Random Forest selected for deployment")
 
+# =====================================
+# TAB 3 - ABOUT
+# =====================================
 
-    with tab3:
+with tab3:
 
     st.header("ℹ️ About EduPredict AI")
 
     st.write("""
-    EduPredict AI predicts student academic performance
-    using a Random Forest Regression model.
+This application predicts student academic performance using a
+Random Forest Regression model.
 
-    **Technologies Used**
-    - Python
-    - pandas
-    - scikit-learn
-    - Streamlit
-    - Joblib
+### Technologies
+- Python
+- pandas
+- scikit-learn
+- Streamlit
+- Joblib
 
-    **Dataset**
-    Student Performance Dataset from the
-    University of California, Irvine (UCI)
-    Machine Learning Repository.
-    """)
+### Dataset
+Student Performance Dataset from the
+University of California, Irvine (UCI)
+Machine Learning Repository.
+""")
 
     st.success("👨‍💻 Developed by Yogesh Ambavaram")
        
