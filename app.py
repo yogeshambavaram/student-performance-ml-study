@@ -78,6 +78,65 @@ tab1, tab2, tab3 = st.tabs([
     "📊 Model Insights",
     "ℹ️ About"
 ])
+
+   with tab1:
+
+    # Sidebar
+    # All sliders
+    # Input dataframe
+    # Predict button
+    # Suggestions
+
+
+   with tab2:
+
+    st.header("📊 Model Insights")
+
+    st.write("### Model Comparison")
+
+    st.table({
+        "Model": [
+            "Linear Regression",
+            "Random Forest",
+            "Gradient Boosting"
+        ],
+        "R² Score": [
+            0.27,
+            0.13,
+            0.21
+        ]
+    })
+
+    st.write("### Dataset")
+
+    st.write("- 395 students")
+    st.write("- 33 original features")
+    st.write("- Random Forest used for deployment")
+
+
+    with tab3:
+
+    st.header("ℹ️ About EduPredict AI")
+
+    st.write("""
+    EduPredict AI predicts student academic performance
+    using a Random Forest Regression model.
+
+    **Technologies Used**
+    - Python
+    - pandas
+    - scikit-learn
+    - Streamlit
+    - Joblib
+
+    **Dataset**
+    Student Performance Dataset from the
+    University of California, Irvine (UCI)
+    Machine Learning Repository.
+    """)
+
+    st.success("👨‍💻 Developed by Yogesh Ambavaram")
+       
 # Animation goes HERE
 
 st.markdown("""
