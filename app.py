@@ -21,6 +21,12 @@ st.set_page_config(
 
 st.title("🎓 Student Academic Performance Predictor")
 
+# Animation goes HERE
+
+st.markdown("""
+Predict a student's final academic grade using a Random Forest Machine Learning model.
+""")
+
 st.markdown("""
 Predict a student's **final academic grade** using a Random Forest Machine Learning model trained on the **UCI Student Performance Dataset**.
 
